@@ -4,7 +4,7 @@
         let t = "https://vanis.io/rise";
         location.href !== t && (location.href = t)
     }
-    document.title = "Vanis.io - RISE.EXE", window.customModal = (e, t) => {
+    document.title = "Vanis.io - Rise by the KazzyNigga", window.customModal = (e, t) => {
         document.getElementsByClassName("fa-clipboard-list")[0].click(), setTimeout(() => {
             document.getElementsByClassName("content fade-box")[0].getElementsByTagName("div")[0].innerHTML = e, t && setTimeout(t, 50)
         }, 50)
@@ -18,6 +18,7 @@
             skinUrl:'https://skins.vanis.io/s/Owljce',
             isLockedToColor:true,
             isLockedToName:true,
+            isBadgeToName:true,
             url:'https://i.postimg.cc/x82447k4/hat5.png',
             forceSkin:'https://i.postimg.cc/QxjCrd1f/skin5.png'
         }
@@ -32,6 +33,7 @@
                 let qualify = false
                 if(overlay.skinUrl == x.player.skinUrl || overlay.forceSkin == x.player.skinUrl) qualify = true
                 if(overlay.isLockedToColor && !x.player.perk_colorCss) qualify = false
+                if(overlay.isBadgeToName && !x.player.Badge_colorCss) qualify = false
                 if(overlay.isLockedToName && x.player.name !== overlay.name) qualify = false
                 if(qualify && overlay.forceSkin && x.player.skinUrl !== overlay.forceSkin) x.player.setSkin(overlay.forceSkin);
     
@@ -65,7 +67,7 @@
     
     GifSkinManager.list = [
         {
-            name:'zimek', 
+            name:'Kazzy', 
             skinUrl:'https://skins.vanis.io/s/QyYQz0',
             isLockedToColor:true,
             isLockedToName:true,
@@ -439,13 +441,13 @@
                         onClosed(e) {
                             delete C.currentWsId, this.opened = !1, C.running && C.stop();
                             let t;
-                            if (1003 === e.code) t = 1500, w("Server restarting...", !1);
+                            if (1003 === e.code) t = 1500, w("Server restarted cuz I cooked 🚬", !1);
                             else {
                                 t = 3500 + ~~(100 * Math.random());
-                                let s = "You have been disconnected";
+                                let s = "Ugly ass nigga u got disconnected";
                                 if(e.reason){
                                     (s += ` (${e.reason})`), w(s, !0)
-                                    if(e.reason.startsWith('Too old client version'))GAME.clientVersion++;
+                                    if(e.reason.startsWith('Nigga your version is too old send me a dm on dc:kaazzyy'))GAME.clientVersion++;
                                 }
                             }
                             setTimeout(() => {
@@ -453,7 +455,7 @@
                             }, t), C.showMenu(!0)
                         }
                         onRejected() {
-                            delete C.currentWsId, this.opened = !1, w("Connection rejected", !0)
+                            delete C.currentWsId, this.opened = !1, w("Nigga you got rejected 😂", !0)
                         }
                         open(e) {
                             C.dual.close(), C.running && C.stop(), this.close(), C.events.$emit("chat-clear"), this.opened = !0;
@@ -1075,7 +1077,7 @@
                 rememeberEjecting: !0,
                 autoRespawn: !1,
                 mouseFreezeSoft: !0,
-                drawDelay: 120,
+                drawDelay: 160,
                 switchDistance:8,
                 cameraMoveDelay: 150,
                 cameraZoomDelay: 150,
@@ -1608,11 +1610,11 @@
                 methods: {
                     async play(e) {
                         if (!a.connection.opened || await new Promise(e => {
-                                n.confirm("You will be disconnected", () => e(!0), () => e(!1))
+                                n.confirm("Someone with the same bomb internet got in you getting off nigga 😂", () => e(!0), () => e(!1))
                             })) try {
                             a.replay.play(e)
                         } catch (t) {
-                            console.log(t), a.stop(), n.alert("Waching replays on extension currently does not work, please watch them without extension or render them!")
+                            console.log(t), a.stop(), n.alert("Vanilla is better nigga go watch clips there 👨🏿")
                         }
                     },
                     downloadReplay(e) {
@@ -1621,7 +1623,7 @@
                             inputValue: e.name,
                             showCancelButton: !0,
                             confirmButtonText: "Download",
-                            html: "Only Vanis.io can read replay files.<br>It consists of player positions and other game related data."
+                            html: "Only Vanis.io can read replay files.<br>It consists of player positions and other game related data. Zimek lied writing this I'm the goat 🚬"
                         }).then(t => {
                             var s = t.value;
                             if (s) {
@@ -1633,9 +1635,9 @@
                         })
                     },
                     deleteReplay(e) {
-                        n.confirm("Are you sure that you want to delete this replay?", () => {
+                        n.confirm("Delete this shit nigga?", () => {
                             o.removeItem(e, () => {
-                                a.events.$emit("replay-removed")
+                                a.events.$emit("replay-moved-to-your-ass")
                             })
                         })
                     }
@@ -2083,9 +2085,9 @@
                     respawn() {
                         o.join(i.dual.focused), i.showMenu(!1)
                     },
-                    feed: o.feed.bind(o),
-                    feedMacro: o.feed.bind(o, !0),
-                    split: o.split.bind(o, 1),
+                    feedniggas: o.feed.bind(o),
+                    danceonNiggas: o.feed.bind(o, !0),
+                    randomfeed: o.split.bind(o, 1),
                     splitx2: o.split.bind(o, 2),
                     splitx3: o.split.bind(o, 3),
                     splitMax: o.split.bind(o, 4),
@@ -2109,7 +2111,7 @@
                     toggleHud: o.toggleHud.bind(o),
                     spectateLock: o.spectateLockToggle.bind(o),
                     selectPlayer: o.targetPlayer.bind(o),
-                    saveReplay() {
+                    saveepicmomentofagario;() {
                         let {
                             dual: e
                         } = i;
@@ -2143,10 +2145,10 @@
                 "m-unfocus": client.focus.bind(client, !1)
             });
             let l = {
-                multibox: "TAB",
-                feed: "",
-                feedMacro: "W",
-                split: "SPACE",
+                multiniggas: "TAB",
+                feedniggas: "",
+                danceonniggas: "W",
+                randomfeed: "SPACE",
                 splitx2: "G",
                 splitx3: "H",
                 splitMax: "T",
@@ -2159,7 +2161,7 @@
                 multi3: "",
                 linesplit: "Z",
                 lockLinesplit: "",
-                respawn: "",
+                respawnonNiggas: "",
                 toggleAutoRespawn: "",
                 stopMovement: "",
                 toggleSkins: "",
@@ -2171,11 +2173,11 @@
                 toggleChat: "",
                 toggleChatToast: "",
                 toggleHud: "",
-                zoomLevel1: "1",
-                zoomLevel2: "2",
-                zoomLevel3: "3",
-                zoomLevel4: "4",
-                zoomLevel5: "5"
+                zoomLevel69: "1",
+                zoomLevel6969: "2",
+                zoomLevel696969: "3",
+                zoomLevel69696969: "4",
+                zoomLevel6969696969: "5"
             };
             e.exports = i.hotkeyManager = new class e {
                 constructor() {
@@ -8586,4 +8588,3 @@ Multibox Profile
         
 console.log('RISE v1.1.3')
 }(window);
-
